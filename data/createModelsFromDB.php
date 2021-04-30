@@ -2,26 +2,18 @@
     $conn = mysqli_connect('127.0.0.1', 'schule', '', 'eggersversicherung');
     $tables = mysqli_query($conn, "SHOW TABLES;")
     foreach ($tables as $table) {
-        $columns = mysqli_query($conn, "SHOW COLUMNS FROM $table");
-        $newModel = fopen("models/".strtolower($table).".php", "w");
-        fwrite($newModel,"<?php\nclass $table {\n";);
+        $tableName = mysqli_fetch_row($table)[0];
+        $columns = mysqli_query($conn, "SHOW COLUMNS FROM $tableName");
+        $newModel = fopen("models/".strtolower($tableName).".php", "w");
+        fwrite($newModel,"<?php\nclass $tableName {\n");
         foreach ($columns as $column) {
-            $modelProperty = "";
-            $nextCharCapital = false;
-            foreach ($column as $char) {
-                if ($nextCharCapital && $char !== "_") {
-                    $modelproperty += strtoupper($char);
-                    $nextCharCapital = false;
-                } else {
-                    if ($char !== "_") {
-                        $modelProperty += strtolower($char);
-                    } else {
-                        $nextCharCapital = true;
-                    }
-                }
-                
+            $columnparts = explode("_", $column["Field"]);
+            if (count($columnparts) > 1) {
+                $columnparts[0]->strtolower();
+                $columnparts[1]->strtolower();
+                $columnparts[1][0]->strtoupper(); // idk if this works ^^
             }
-            fwrite($newModel,"\tpublic $$modelProperty;\n";); 
+            fwrite($newModel,"\tpublic $$column;\n"); 
 
 
         }
