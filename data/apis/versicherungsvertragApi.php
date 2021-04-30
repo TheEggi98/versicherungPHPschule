@@ -1,13 +1,6 @@
 <?php
 
-class Versicherungsvertrag {
-    public $id;
-    public $vertragsNummer;
-    public $abschlussdatum;
-    public $art;
-    public $mitarbeiterID;
-    public $fahrzeugID;
-    public $versicherungsnehmerID;
+class VersicherungsvertragApi {
 
     function createVersicherungsvertrag($conn, $data) {
         $sql = "INSERT INTO Versicherungsvertrag 

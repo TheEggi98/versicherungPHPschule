@@ -1,6 +1,6 @@
 <?php
 
-class Versicherungsnehmer {
+class VersicherungsnehmerApi {
     public $id;
     public $name;
     public $vorname;
