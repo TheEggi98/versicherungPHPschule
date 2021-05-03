@@ -9,3 +9,6 @@
   ?>
   <h1>Mitarbeiter works!</h1>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
