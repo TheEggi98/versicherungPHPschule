@@ -4,6 +4,6 @@
       include '../data/db.php';
   
       $conn = dbConnect();
-      // $fahrzeugApi = new FahrzeugherstellerApi.php;
+      // $fahrzeugherstellerApi = new FahrzeugherstellerApi.php;
   ?>
 </body>
