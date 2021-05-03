@@ -7,3 +7,6 @@
     // $schadensfallApi = new SchadensfallApi();
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
