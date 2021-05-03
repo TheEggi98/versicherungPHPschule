@@ -6,13 +6,14 @@
 $conn = mysqli_connect('127.0.0.1', 'schule', '', 'eggersversicherung');
 $tables = mysqli_query($conn, "SHOW TABLES;")
 foreach ($tables as $table) {
-    $columns = mysqli_query($conn, "SHOW COLUMNS FROM $table");
+    $tableName = mysqli_fetch_row($table)[0];
+    $columns = mysqli_query($conn, "SHOW COLUMNS FROM $tableName");
     $newApi = fopen("apis/".strtolower($table).".php", "w");
 
     fwrite($newApi,"<?php\n
-        class '.$table.'Api {\n
-        \tfunction create".$table.'($conn, $data) {\n
-        $sql = "INSERT INTO '.$table."\n (");
+        class '.$tableName.'Api {\n
+        \tfunction create".$tableName.'($conn, $data) {\n
+        $sql = "INSERT INTO '.$tableName."\n (");
 
     $columnString = "";
     $valuesString = ") VALUES (";
@@ -45,22 +46,22 @@ foreach ($tables as $table) {
     fwrite($newApi,  '$insert = mysqli_query($conn, $sql);'."\n".'
         }'."\n\n".'
 
-        function get'.$table.'($conn) {'."\n".'
-            $sql = "SELECT * FROM '.$table.';";'."\n".'
+        function get'.$tableName.'($conn) {'."\n".'
+            $sql = "SELECT * FROM '.$tableName.';";'."\n".'
             return mysqli_query($conn, $sql);'."\n".'
         }'."\n\n".'
 
-        function get'.$table.'ByID($conn, $id) {'."\n".'
-            $sql = "SELECT * FROM '.$table.' WHERE '.$dbID.' = $id;";'."\n".'
+        function get'.$tableName.'ByID($conn, $id) {'."\n".'
+            $sql = "SELECT * FROM '.$tableName.' WHERE '.$dbID.' = $id;";'."\n".'
             return mysqli_query($conn, $sql);'."\n".'
         }'."\n\n".'
 
-        function delete'.$table.'($conn, $id) {'."\n".'
-            $sql ="DELETE FROM '.$table.' WHERE '.$dbID.' = $id";'."\n".'
+        function delete'.$tableName.'($conn, $id) {'."\n".'
+            $sql ="DELETE FROM '.$tableName.' WHERE '.$dbID.' = $id";'."\n".'
             $delete = mysqli_query($donn, $sql);'."\n".'
         }'."\n\n".'
 
-        function update'.$table.'($conn, $data) {'."\n".'
+        function update'.$tableName.'($conn, $data) {'."\n".'
             $sql = "UPDATE Mitarbeiter SET '."\n");
     $updateString = substr($updateString, 0, -3);
     $updateString += "WHERE $updateIDString;".'";'."\n";
