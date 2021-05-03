@@ -7,3 +7,6 @@
       // $versicherungsgesellschaftApi = new VersicherungsgesellschaftApi.php;
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
