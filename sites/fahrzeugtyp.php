@@ -7,3 +7,6 @@
       // $fahrzeugtypApi = new FahrzeugtypApi.php;
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
