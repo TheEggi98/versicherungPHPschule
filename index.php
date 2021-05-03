@@ -15,9 +15,9 @@
 
 <title>Versicherung</title>
 </head>
-<body class="d-flex flex-column">  
+<body>  
     <div>
-
+        <a href="sites/mitarbeiter">Mitarbeiter</a>
     </div>
 </body>
 <?php
