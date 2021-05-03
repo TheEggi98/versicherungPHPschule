@@ -7,3 +7,6 @@
     // $versicherungsnehmerApi = new VersicherungsnehmerApi();
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
