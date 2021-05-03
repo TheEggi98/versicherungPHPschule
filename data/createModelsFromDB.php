@@ -8,12 +8,13 @@
         fwrite($newModel,"<?php\nclass $tableName {\n");
         foreach ($columns as $column) {
             $columnparts = explode("_", $column["Field"]);
-            $columnparts[0]->strtolower();
+            $colName = strtolower($columnparts[0]);
             if (count($columnparts) > 1) {
-                $columnparts[1]->strtolower();
-                $columnparts[1][0]->strtoupper(); // idk if this works ^^
+                $colName2 = strtolower($columnparts[1]);
+                $colName2[0] = strtoupper($colName2[0]);
+                $colName .= $colName2;
             }
-            fwrite($newModel,"\tpublic $$column;\n"); 
+            fwrite($newModel,"\tpublic $$colName;\n"); 
 
 
         }
