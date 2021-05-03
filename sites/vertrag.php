@@ -8,3 +8,6 @@
   $vertragsApi = new VersicherungsvertragApi();
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
