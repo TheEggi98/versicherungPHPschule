@@ -7,3 +7,6 @@
       // $abteilungApi = new AbteilungApi.php;
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
