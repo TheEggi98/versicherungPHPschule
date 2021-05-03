@@ -1,3 +1,4 @@
+<?php
 <div>
           <a href="sites/abteilung">Abteilungen</a>
           <a href="sites/dienstwagen.php">Dienstwagen</a>
@@ -11,3 +12,4 @@
           <a href="sites/versicherungsnehmer.php">Versicherungsnehmer</a>
           <a href="sites/vertrag.php">Verträge</a>
       </div>
+?>
