@@ -24,27 +24,18 @@ foreach ($tables as $table) {
             $dbID = $column;
         }
         $columnString += $column.", ";
-
-        $modelProperty = "";
-        $nextCharCapital = false;
-        foreach ($column as $char) {
-            if ($nextCharCapital && $char !== "_") {
-                $modelproperty += strtoupper($char);
-                $nextCharCapital = false;
-            } else {
-                if ($char !== "_") {
-                    $modelProperty += strtolower($char);
-                } else {
-                    $nextCharCapital = true;
-                }
-            }
-            
+        $columnparts = explode("_", $column["Field"]);
+        $colName = strtolower($columnparts[0]);
+        if (count($columnparts) > 1) {
+            $colName2 = strtolower($columnparts[1]);
+            $colName2[0] = strtoupper($colName2[0]);
+            $colName .= $colName2;
         }
         if ($updateIDString == "") {
-            $updateIDString = $column.' = $data->'.$modelProperty;
+            $updateIDString = $column.' = $data->'.$colName;
         }
-        $updateString += $column.' = $data->'.$modelProperty.','."\n";
-        $valuesString += '$data->'.$modelProperty.', ';
+        $updateString += $column.' = $data->'.$colName.','."\n";
+        $valuesString += '$data->'.$colName.', ';
 
 
     }
