@@ -7,3 +7,6 @@
       // $tankvorgaengeApi = new TankvorgaengeApi.php;
   ?>
 </body>
+<?php
+dbCloseConnection($conn);
+?>
