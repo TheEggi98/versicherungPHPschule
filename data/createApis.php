@@ -24,7 +24,6 @@ foreach ($tables as $table) {
         if ($dbID == "") {
             $dbID = $column;
         }
-        $columnString += $column.", ";
         $columnparts = explode("_", $column["Field"]);
         $colName = strtolower($columnparts[0]);
         if (count($columnparts) > 1) {
@@ -33,10 +32,11 @@ foreach ($tables as $table) {
             $colName .= $colName2;
         }
         if ($updateIDString == "") {
-            $updateIDString = $column.' = $data->'.$colName;
+            $updateIDString = $colName.' = $data->'.$colName;
         }
-        $updateString += $column.' = $data->'.$colName.','."\n";
-        $valuesString += '$data->'.$colName.', ';
+        $columnString .= $colName.", ";
+        $updateString .= $column["Field"].' = $data->'.$colName.','."\n";
+        $valuesString .= '$data->'.$colName.', ';
 
 
     }
