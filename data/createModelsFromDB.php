@@ -8,8 +8,8 @@
         fwrite($newModel,"<?php\nclass $tableName {\n");
         foreach ($columns as $column) {
             $columnparts = explode("_", $column["Field"]);
+            $columnparts[0]->strtolower();
             if (count($columnparts) > 1) {
-                $columnparts[0]->strtolower();
                 $columnparts[1]->strtolower();
                 $columnparts[1][0]->strtoupper(); // idk if this works ^^
             }
