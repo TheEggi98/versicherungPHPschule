@@ -10,7 +10,7 @@
   </head>
   <body>  
  <?php
-    require("data/menu.php");
+    include __DIR__ . "/sites/menu.php";
  ?>
   </body>
 </html>

@@ -1,11 +1,16 @@
 <?php
 
+
 function dbConnect() {
-    $conn = mysqli_connect('127.0.0.1', 'schule', '', 'eggersversicherung');
+	$host = "127.0.0.1";
+	$user = "schule";
+	$pw = "";
+	$db = "teichlerversicherung";
+    $conn = mysqli_connect($host, $user, $pw, $db);
     if (!$conn) {
         die('keine Datenbank verbindung möglich: ' . mysql_error());
     } else {
-        return $conn
+        return $conn;
     }
 }
 

@@ -1,10 +1,19 @@
 <?php
-    $conn = mysqli_connect('127.0.0.1', 'schule', '', 'eggersversicherung');
-    $tables = mysqli_query($conn, "SHOW TABLES;")
+
+$host = "127.0.0.1";
+$user = "schule";
+$pw = "";
+$db = "eggersversicherungn";
+
+
+$conn = mysqli_connect($host, $user, $pw, $db);
+    $tables = mysqli_query($conn, "SHOW TABLES;");
     foreach ($tables as $table) {
-        $tableName = mysqli_fetch_row($table)[0];
+        $tableName = $table["Tables_in_$db"];
         $columns = mysqli_query($conn, "SHOW COLUMNS FROM $tableName");
-        $newModel = fopen("models/".strtolower($tableName).".php", "w");
+		$tableName = strtolower($tableName);
+		$tableName[0] = strtoupper($tableName[0]);
+        $newModel = fopen("models/".$tableName.".php", "w");
         fwrite($newModel,"<?php\nclass $tableName {\n");
         foreach ($columns as $column) {
             $columnparts = explode("_", $column["Field"]);

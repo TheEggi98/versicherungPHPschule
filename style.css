@@ -1,4 +1,45 @@
 .menu {
- margin-top: 0px;
- width: 100vw;
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+}
+
+.slight-border {
+	border: groove;
+	/* border-width: 1px; */
+	padding: 0.5em;
+	border-color: rgba(0, 0, 0, 0.5);
+}
+
+.nice-hr {
+	margin-top: 1em;
+	line-height: 1.5px;
+	border: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	text-align: left;
+	font-weight: bold;
+	color: black;
+}
+.nice-hr:before {
+	content: "";
+	position: absolute;
+}
+.nice-hr:after {
+	content: attr(data-content);
+	position: relative;
+	display: inline-block;
+	padding: 0 .5em;
+	background-color: white;
+}
+
+.nav-content {
+	margin: .5em;
+}
+
+.table {
+	background-color: black;
+}
+td, th {
+	background-color: white;
+
 }
