@@ -2,13 +2,33 @@
 	display: flex;
 	flex-direction: column;
 	width: 200px;
+	margin-right: 50px;
+	height: 100vh;
 }
 
-.slight-border {
-	border: groove;
-	/* border-width: 1px; */
-	padding: 0.5em;
-	border-color: rgba(0, 0, 0, 0.5);
+.page {
+	display: flex;
+	flex-direction: row;
+}
+
+.form {
+	margin-left: 25px;
+	display: flex;
+	flex-direction: column;
+	border: solid;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.form-control {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.form-input {
+	float:right;
+	margin-left: 20px;
+	width: 50%;
 }
 
 .nice-hr {
@@ -32,14 +52,57 @@
 	background-color: white;
 }
 
-.nav-content {
+.btn {
+	border: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	border-color: black;
+	color: black;
+	background-color: white;
+}
+.btn:hover {
+	background-color: lightblue;
+}
+
+div > label > a {
 	margin: .5em;
+	text-decoration: none;
+}
+div > label > a:link {
+	color: blue;
+}
+div > label > a:visited {
+	color: darkblue;
+}
+div > label > a:hover {
+	color: orange;
+}
+
+.table-entry {
+	text-decoration: none;
+	color: black;
 }
 
 .table {
 	background-color: black;
+	border-radius: 10px;
+	padding: 2px;
 }
 td, th {
 	background-color: white;
-
+	padding: 5px;
 }
+
+.text-center {
+	text-align: center;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
